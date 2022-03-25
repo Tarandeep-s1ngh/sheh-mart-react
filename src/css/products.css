@@ -1,0 +1,192 @@
+
+.products-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+
+/*=============================================
+=            Filter Section            =
+=============================================*/
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    min-width: 14rem;
+    border: 1px solid var(--dark-shadow);
+    border-radius: 5px;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-header > a {
+    text-decoration: underline;
+}
+
+.filter > hr {
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.filter h3 {
+    margin-top: 0.5rem;
+}
+
+.filter-price {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="range"] {
+    accent-color: var(--accent-color);
+    width: unset;
+    border-radius: unset;
+    height: unset;
+}
+
+/*=============================================
+=            Cards in Product Listing            =
+=============================================*/
+
+.card-badge-ecom{
+    max-width: 17rem;
+    /* For Dark Mode (To be used later) */
+    /* background-color: var(--secondary-color); */
+    background-color: var(--white);
+    box-shadow: 0 0 0 1px var(--ecom-box-shadow);
+    margin: 0;
+    border-radius: 5px;
+}
+
+.card-header-ecom {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card-image-container {
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card-badge .img-responsive-ecom {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transform: scale(1.1);
+}
+
+.card-floating-icon {
+    display: inline-block;
+    padding-inline: 0.4rem;
+    color: var(--ecom-red);
+    font-size: 1.3rem;
+}
+
+.card-floating-icon:hover {
+    background-color: unset;
+}
+
+.card-price > .discount {
+    color: var(--ecom-green);
+}
+
+.card-btn {
+    background-color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    color: var(--white);
+    text-align: center;
+}
+
+.card-btn:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.overlay-msg {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/*=============================================
+=            Card Section Layout            =
+=============================================*/
+
+.products-section {
+    margin-left: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-evenly;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.pagination span {
+    cursor: pointer;
+}
+
+
+
+/*=============================================
+=            Single Product            =
+=============================================*/
+
+.single-product-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product-image > img {
+    border-radius: 10px;
+}
+
+.product-details {
+    max-width: 30rem;
+}
+
+.product-description {
+    text-align: justify;
+}
+
+.product-details > .btn-primary {
+    background-color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    color: var(--white);
+}
+
+.product-details > .btn-primary:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.product-details > .btn-outline {
+    background-color: var(--white);
+    border: 2px solid var(--accent-color);
+    color: var(--black);
+    font-weight: 600;
+}
+
+.product-details > .btn-outline:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+@media screen and (max-width: 530px) {
+    .filter {
+        display: none;
+    }
+}

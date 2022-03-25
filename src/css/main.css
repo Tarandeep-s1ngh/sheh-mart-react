@@ -1,0 +1,141 @@
+
+/*=============================================
+=            Landing Page            =
+=============================================*/
+.hero-section {
+    background-color: var(--white);
+    background-image: url("../assets/chess-banner2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+    height: 25rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.hero-txt {
+    position: absolute;
+    top: 6rem;
+    left: 5rem;
+}
+
+.hero-txt > * {
+    font-family: var(--title-font);
+    font-weight: 800;
+    font-style: italic;
+}
+
+.hero-txt > .h1 {
+    color: var(--dark-blue);
+    font-size: 4rem;
+}
+
+.hero-txt > .h2 {
+    margin-top: 1rem;
+    font-size: 2.5rem;
+}
+
+.hero-txt > .btn-primary {
+    margin-top: 1rem;
+    background-color: var(--accent-color);
+    color: var(--dark-black);
+    font-weight: 400;
+    cursor: pointer;
+    border: 2px solid var(--accent-color);
+}
+
+.hero-txt > .btn-primary:hover {
+    background-color: #efefef;
+}
+
+
+/* Categories */
+
+.category-cards {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6rem;
+    justify-content: center;
+}
+
+.category-cards .card-badge {
+    padding: 1rem 2rem;
+    background-color: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    color: var(--black);
+}
+
+.category-cards .card-badge > i {
+    text-align: center;
+    font-size: 6rem;
+}
+
+.category-cards .card-badge > i:hover {
+    color: var(--accent-color);
+}
+
+.category-cards .card-badge > .card-header-txt {
+    margin-top: 0.5rem;
+}
+
+
+.btn-outline {
+    margin: 0.5rem;
+    color: var(--text-color);
+    background-color: var(--dark-black);
+    border: 2px solid var(--accent-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--accent-color);
+}
+
+.products-section-home {
+    margin-left: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: space-evenly;
+}
+
+/*=============================================
+=            Media Queries            =
+=============================================*/
+
+/* Mobile Devices */
+
+@media screen and (max-width: 40em) {
+    .hero-txt {
+        position: absolute;
+        top: 2rem;
+        left: 3rem;
+    }
+
+    .hero-txt > .h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-txt > .h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/*=====  Tablets  ======*/
+
+@media screen and (max-width: 48em) {
+    .hero-section {
+        background-image: none;
+    }
+
+    .hero-txt > .h1 {
+        color: var(--black);
+    }
+
+    .category-cards {
+        gap: 1rem;
+    }
+}
