@@ -1,0 +1,145 @@
+/*=============================================
+=            Global Chess Blaze            =
+=============================================*/
+
+:root {
+    --primary-color: #17181a;
+    --secondary-color: #202123;
+    --accent-color: #ec7043;
+    --highlight-color: #46b9be;
+    --white: #ffffff;
+    --dark-blue: #1f274b;
+    --text-color: #d9d9d9;
+    --black: #242424;
+    --dark-black: #1a1a1a;
+    --light-gray: #78909c;
+    --dark-gray: #424242;
+    --dark-shadow: #2c2c2c;
+    --ecom-red: #d51b1f;
+    --ecom-green: #388e3c;
+    --ecom-box-shadow: #27374750;
+    --title-font: 'Poppins', sans-serif;
+    font-size: 100%;
+}
+
+.accent-color {
+    color: var(--accent-color);
+}
+
+.highlight-color {
+    color: var(--highlight-color);
+}
+
+.pt-0p5 {
+    margin-top: 0.5rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.t1p125 {
+    font-size: 1.125rem;
+}
+
+.t0p938 {
+    font-size: 0.938rem;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+a {
+    color: var(--black);
+    cursor: pointer;
+}
+
+a:hover {
+    transform: scale(1.01);
+}
+
+.divider {
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--dark-gray);
+    margin: auto;
+}
+
+.divider-a {
+    margin-top: 0.5rem;
+}
+
+.divider-b-full {
+    margin-bottom: 1rem;
+}
+
+.divider-b {
+    margin-bottom: 1.5rem;
+    max-width: 70%;
+}
+
+.disable-pointer-event {
+    cursor: auto;
+    pointer-events: none;
+}
+
+.dis-inline-block {
+    display: inline-block;
+}
+
+button:hover {
+    transform: scale(1.01);
+}
+
+a.icon-in-nav:hover {
+    color: var(--black);
+    background-color: unset;
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-wrapper {
+    flex-grow: 1;
+    padding: 1rem;
+    /* margin-top: 62px; */
+}
+
+.flex-row {
+    display: flex;
+}
+
+.flex-row-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-col {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.gap0p3 {
+    gap: 0.3rem;
+}
+
+.f-grow {
+    flex-grow: 1;
+}
+
+.justify-se {
+    justify-content: space-evenly;
+}
