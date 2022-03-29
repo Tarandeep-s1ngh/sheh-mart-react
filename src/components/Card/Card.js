@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 
 export const Card = ({ items }) => {
-  const [cartProducts, setCartProducts] = useState({ cartProducts: [] });
-  console.log(cartProducts);
+  // const [cartProducts, setCartProducts] = useState({ cartProducts: [] });
+  // console.log(cartProducts);
   return (
     <div className="card-badge card-badge-ecom">
       <div className="card-header card-header-ecom">
@@ -25,7 +25,7 @@ export const Card = ({ items }) => {
             </Link>
 
             <span className="rating-badge rating-badge-ecom">
-              3.5{" "}
+              {items.rating}{" "}
               <span className="rating-fill rating-fill-ecom">
                 <i className="fa-solid fa-star"></i>
               </span>
@@ -33,10 +33,10 @@ export const Card = ({ items }) => {
           </div>
           <small className="gray-color">{items.categoryName}</small>
           <div className="card-price">
-            <span className="final-price t1p125 semibold">{items.price}</span>
+            <span className="final-price t1p125 semibold">₹{items.price}</span>
             &nbsp; &nbsp;
             <span className="initial-price t-strike gray-color">
-              {items.initialPrice}
+              ₹{items.initialPrice}
             </span>
             &nbsp; &nbsp;
             <span className="discount lightbold t0p938">
@@ -47,7 +47,7 @@ export const Card = ({ items }) => {
         </div>
       </div>
       <button
-        onClick={() => setCartProducts((curr) => [...curr, items])}
+        // onClick={() => setCartProducts((curr) => [...curr, items])}
         className="btn-primary card-btn"
       >
         Add to Cart
