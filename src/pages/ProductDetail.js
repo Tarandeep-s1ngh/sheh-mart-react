@@ -1,8 +1,10 @@
-import { useProduct } from "../context";
 import { Card } from "../components";
+import { useFilter } from "../context";
 
 export const ProductDetail = () => {
-  const { state: products } = useProduct();
+  const { productState, dispatchProduct } = useFilter();
+
+  const productCategories = ["Board", "Book", "Pieces"];
 
   return (
     <div>
@@ -13,7 +15,16 @@ export const ProductDetail = () => {
           <aside className="filter">
             <div className="filter-header">
               <h2 className="h2">Filters</h2>
-              <a href="">Clear</a>
+              <span
+                className="span-hover lightbold"
+                onClick={() => {
+                  dispatchProduct({
+                    type: "CLEAR_FILTER",
+                  });
+                }}
+              >
+                Clear
+              </span>
             </div>
 
             <div className="divider"></div>
@@ -21,8 +32,8 @@ export const ProductDetail = () => {
             <h3 className="h3">Price</h3>
             <label htmlFor="range" className="lightbold">
               <div className="filter-price">
-                <span>50</span>
-                <span>1000</span>
+                <span>200</span>
+                <span>{productState.selectedMaxPrice}</span>
               </div>
             </label>
             <label htmlFor="range" className="lightbold"></label>
@@ -32,62 +43,113 @@ export const ProductDetail = () => {
               type="range"
               name="range"
               id="range"
-              min="50"
+              min="200"
               max="1000"
-              defaultValue="1000"
+              value={productState.selectedMaxPrice}
+              onChange={(e) => {
+                dispatchProduct({
+                  type: "RANGE_VALUE_UPDATE",
+                  payload: { rangeValueUpdate: e.target.value },
+                });
+              }}
+              onMouseUp={(e) => {
+                dispatchProduct({
+                  type: "RANGE_FILTER",
+                  payload: { selectedMaxPrice: e.target.value },
+                });
+              }}
             />
 
             <h3 className="h3">Categories</h3>
-            <div className="flex-row gap0p2">
-              <input type="checkbox" />
-              <label>Boards</label>
-            </div>
-            <div className="flex-row gap0p2">
-              <input type="checkbox" />
-              <label>Books</label>
-            </div>
-            <div className="flex-row gap0p2">
-              <input type="checkbox" />
-              <label>Pieces</label>
-            </div>
+            {productCategories.map((categ) => {
+              return (
+                <div className="flex-row gap0p2" key={categ}>
+                  <input
+                    type="checkbox"
+                    id={categ}
+                    name="categories"
+                    value={categ}
+                    checked={productState.selectedCategories.includes(categ)}
+                    onChange={(e) =>
+                      e.target.checked
+                        ? dispatchProduct({
+                            type: "ADD_CATEGORY_FILTER",
+                            payload: { categories: categ },
+                          })
+                        : dispatchProduct({
+                            type: "REMOVE_CATEGORY_FILTER",
+                            payload: { categories: categ },
+                          })
+                    }
+                  />
+                  <label htmlFor={categ}>{categ}</label>
+                </div>
+              );
+            })}
 
             <h3 className="h3">Rating</h3>
-            <div className="flex-row gap0p2">
-              <input type="radio" name="rating" />
-              <label>4 stars & above</label>
-            </div>
 
-            <div className="flex-row gap0p2">
-              <input type="radio" name="rating" />
-              <label>3 stars & above</label>
-            </div>
-
-            <div className="flex-row gap0p2">
-              <input type="radio" name="rating" />
-              <label>2 stars & above</label>
-            </div>
-
-            <div className="flex-row gap0p2">
-              <input type="radio" name="rating" />
-              <label>1 star & above</label>
-            </div>
+            {[4, 3, 2, 1].map((num) => {
+              return (
+                <div className="flex-row gap0p2" key={num}>
+                  <input
+                    type="radio"
+                    id={`"above "${num}`}
+                    value={`${num}" stars & above"`}
+                    name="rating"
+                    checked={productState.selectedRating === num}
+                    onChange={() =>
+                      dispatchProduct({
+                        type: "RATING_FILTER",
+                        payload: { selectedRating: num },
+                      })
+                    }
+                  />
+                  <label htmlFor={`"above "${num}`}>{num} stars & above</label>
+                </div>
+              );
+            })}
 
             <h3 className="h3">Sort by</h3>
 
             <div className="flex-row gap0p2">
-              <input type="radio" name="sort" />
-              <label>Price - High to low</label>
+              <input
+                type="radio"
+                id="high-to-low"
+                value="high-to-low"
+                name="price-sort"
+                checked={productState.selectedSortBy === "high-to-low"}
+                onChange={() =>
+                  dispatchProduct({
+                    type: "HIGH_TO_LOW",
+                    payload: { selectedSortBy: "high-to-low" },
+                  })
+                }
+              />
+              <label htmlFor="high-to-low">Price - High to low</label>
             </div>
             <div className="flex-row gap0p2">
-              <input type="radio" name="sort" />
-              <label>Price - Low to High</label>
+              <input
+                type="radio"
+                id="low-to-high"
+                value="low-to-high"
+                name="price-sort"
+                checked={productState.selectedSortBy === "low-to-high"}
+                onChange={() =>
+                  dispatchProduct({
+                    type: "LOW_TO_HIGH",
+                    payload: { selectedSortBy: "low-to-high" },
+                  })
+                }
+              />
+              <label htmlFor="low-to-high">Price - Low to High</label>
             </div>
           </aside>
 
           {/********** Product Cards **********/}
           <div>
             <section className="products-section">
-              {products.map((items) => (
+              {productState.productsList.map((items) => (
                 <Card items={items} key={items._id} />
               ))}
             </section>

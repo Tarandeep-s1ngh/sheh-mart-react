@@ -114,6 +114,24 @@ input[type="range"] {
     color: var(--text-color);
 }
 
+.rating-badge-ecom {
+    border: unset;
+    background-color: var(--accent-color);
+    color: var(--white);
+    margin-left: unset;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 0.09rem 0.3rem;
+}
+
+.rating-fill-ecom {
+    color: var(--white);
+    font-size: 0.7rem;
+}
+
 /*=============================================
 =            Card Section Layout            =
 =============================================*/
@@ -136,6 +154,10 @@ input[type="range"] {
     cursor: pointer;
 }
 
+.gif-wrapper {
+    width: 10rem;
+    margin: 0 auto 1rem;
+}
 
 
 /*=============================================

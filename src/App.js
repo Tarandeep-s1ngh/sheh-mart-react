@@ -21,16 +21,16 @@ function App() {
 
         <Routes>
           <Route path="/" element={<LandingPageMain />} />
-          <Route path="/product-detail" element={<ProductDetail />} />
-          <Route path="/single-product" element={<SingleProduct />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/forgot" element={<Forgot />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/mockman" element={<Mockman />} />
+          <Route path="product-detail" element={<ProductDetail />} />
+          <Route path="single-product" element={<SingleProduct />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="wishlist" element={<Wishlist />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="forgot" element={<Forgot />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="mockman" element={<Mockman />} />
         </Routes>
 
         <Footer />

@@ -7,7 +7,7 @@ export const Footer = () => {
         <div className="flex-row-wrap">
           <div>
             <div className="h3 nav-txt">
-              <a className="footer-icon disable-pointer-event" href="">
+              <a className="footer-icon disable-pointer-event" href="/">
                 <i className="fas fa-store"></i> Sheh Mart
               </a>
             </div>
@@ -19,10 +19,10 @@ export const Footer = () => {
 
           <div className="flex-row f-grow justify-se">
             <div className="flex-col">
-              <a className="link">About us</a>
-              <a className="link">Work with us</a>
-              <a className="link">Shipping</a>
-              <a className="link">Customer stories</a>
+              <span className="link span-hover">About us</span>
+              <span className="link  span-hover">Work with us</span>
+              <span className="link  span-hover">Shipping</span>
+              <span className="link  span-hover">Customer stories</span>
             </div>
 
             <div className="flex-col">
@@ -30,6 +30,7 @@ export const Footer = () => {
                 className="link"
                 href="mailto: taran.s1608@gmail.com"
                 target="_blank"
+                rel="noreferrer"
               >
                 <i className="fas fa-at"></i> Contact Us
               </a>
@@ -37,6 +38,7 @@ export const Footer = () => {
                 className="link"
                 href="https://twitter.com/Tarandeep_s1ngh"
                 target="_blank"
+                rel="noreferrer"
               >
                 <i className="fab fa-twitter"></i> Twitter
               </a>
@@ -44,6 +46,7 @@ export const Footer = () => {
                 className="link"
                 href="https://www.linkedin.com/in/tarandeep-s1ngh/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <i className="fab fa-linkedin"></i> LinkedIn
               </a>
@@ -51,6 +54,7 @@ export const Footer = () => {
                 className="link"
                 href="https://github.com/Tarandeep-s1ngh "
                 target="_blank"
+                rel="noreferrer"
               >
                 <i className="fab fa-github"></i> GitHub
               </a>
@@ -65,7 +69,11 @@ export const Footer = () => {
 
       <div className="footer-below mt-1">
         <span className="t0p75">
-          <a href="https://twitter.com/Tarandeep_s1ngh" target="_blank">
+          <a
+            href="https://twitter.com/Tarandeep_s1ngh"
+            target="_blank"
+            rel="noreferrer"
+          >
             <i className="fa-regular fa-copyright"></i> Copyright 2022 -
             Tarandeep Singh
           </a>

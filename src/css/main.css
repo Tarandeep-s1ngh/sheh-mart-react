@@ -45,10 +45,6 @@
     border: 2px solid var(--accent-color);
 }
 
-.hero-txt > .btn-primary:hover {
-    background-color: #efefef;
-}
-
 
 /* Categories */
 
@@ -92,6 +88,31 @@
 .btn-outline:hover {
     background-color: var(--accent-color);
 }
+
+.btn-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    border: 0.5px solid var(--accent-color);
+    background-color: #efefef;
+  
+    transition: transform 400ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  
+  .btn-slide:hover::before,
+  .btn-slide:focus::before {
+    transform: scaleX(1);
+  }
+  
+  .btn-slide {
+    z-index: 1;
+  }
 
 .products-section-home {
     margin-left: 2rem;
