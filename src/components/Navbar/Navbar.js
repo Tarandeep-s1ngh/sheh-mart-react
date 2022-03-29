@@ -9,7 +9,7 @@ export const Navbar = () => {
           <i className="fas fa-store"></i> Sheh Mart
         </Link>
       </div>
-      <Link to="/" className="icon-in-nav">
+      <Link to="/product-detail" className="icon-in-nav">
         <i className="fas fa-search"></i>
       </Link>
       <Link to="/cart" className="icon-in-nav">

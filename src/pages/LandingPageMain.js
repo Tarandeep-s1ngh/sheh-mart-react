@@ -13,7 +13,10 @@ export const LandingPageMain = () => {
         <div className="hero-txt">
           <h1 className="h1">One Stop Shop</h1>
           <h2 className="h2 highlight-color">For All Your Chess Needs</h2>
-          <Link to="/product-detail" className="btn-primary dis-inline-block">
+          <Link
+            to="/product-detail"
+            className="btn-primary dis-inline-block btn-slide"
+          >
             Shop Now
           </Link>
         </div>

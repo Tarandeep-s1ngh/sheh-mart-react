@@ -64,6 +64,12 @@ a:hover {
     transform: scale(1.01);
 }
 
+.span-hover:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+    color: var(--accent-color);
+}
+
 .divider {
     margin-bottom: 0.5rem;
     border-bottom: 1px solid var(--dark-gray);
@@ -142,4 +148,12 @@ a:hover {
 
 .justify-se {
     justify-content: space-evenly;
+}
+
+.justify-sb {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
 }
