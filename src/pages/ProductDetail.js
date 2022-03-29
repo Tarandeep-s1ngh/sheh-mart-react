@@ -1,10 +1,9 @@
 import { Card } from "../components";
 import { useFilter } from "../context";
+import { productCategories } from "../utils";
 
 export const ProductDetail = () => {
   const { productState, dispatchProduct } = useFilter();
-
-  const productCategories = ["Board", "Book", "Pieces"];
 
   return (
     <div>

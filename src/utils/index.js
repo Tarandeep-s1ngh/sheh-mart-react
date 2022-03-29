@@ -1,4 +1,4 @@
-export { awesomeIcons } from "./constants";
+export { awesomeIcons, productCategories } from "./constants";
 export { filterReducer } from "./filter-reducer";
 export { setRange } from "./setRange";
 export { setRating } from "./setRating";
