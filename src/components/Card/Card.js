@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-// import { useState } from "react";
+import { useFilter } from "../../context";
 
 export const Card = ({ items }) => {
-  // const [cartProducts, setCartProducts] = useState({ cartProducts: [] });
-  // console.log(cartProducts);
+  const { dispatchProduct } = useFilter();
+
   return (
     <div className="card-badge card-badge-ecom">
       <div className="card-header card-header-ecom">
@@ -14,7 +14,7 @@ export const Card = ({ items }) => {
             alt={items.alt}
           />
         </div>
-        <div className="badge-in-card">TRENDING</div>
+        {items.isTrending && <div className="badge-in-card">TRENDING</div>}
         <Link to="/wishlist" className="card-floating-icon">
           <i className="fas fa-heart"></i>
         </Link>
@@ -25,7 +25,7 @@ export const Card = ({ items }) => {
             </Link>
 
             <span className="rating-badge rating-badge-ecom">
-              {items.rating}{" "}
+              {items.rating}
               <span className="rating-fill rating-fill-ecom">
                 <i className="fa-solid fa-star"></i>
               </span>
@@ -47,13 +47,19 @@ export const Card = ({ items }) => {
         </div>
       </div>
       <button
-        // onClick={() => setCartProducts((curr) => [...curr, items])}
+        onClick={() => {
+          dispatchProduct({
+            type: "ADD_TO_CART",
+            payload: { itemId: items._id },
+          });
+        }}
         className="btn-primary card-btn"
       >
         Add to Cart
       </button>
+      {items.outOfStock && (
+        <div className="overlay-msg t2 lightbold">Out of Stock</div>
+      )}
     </div>
   );
 };
-
-// export { cartProducts };

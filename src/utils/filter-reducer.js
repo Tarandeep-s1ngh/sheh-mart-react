@@ -39,6 +39,103 @@ export const filterReducer = (productState, action) => {
       );
       return setRemoveCategory(productState, newCategories);
     }
+
+    case "ADD_TO_CART":
+      return {
+        ...productState,
+        totalCartItems:
+          productState.totalCartItems === 0
+            ? 1
+            : productState.totalCartItems + 1,
+        cartProductsList: [
+          ...productState.cartProductsList.map((prod) => {
+            if (prod._id === action.payload.itemId) {
+              return {
+                ...prod,
+                inCart: true,
+                cartItemCount: prod.cartItemCount || 1,
+              };
+            }
+            return prod;
+          }),
+        ],
+      };
+
+    case "REMOVE_FROM_CART":
+      return {
+        ...productState,
+        totalCartItems:
+          productState.totalCartItems === 1
+            ? 0
+            : productState.totalCartItems - 1,
+        cartProductsList: [
+          ...productState.cartProductsList.map((prod) => {
+            if (prod._id === action.payload.itemId) {
+              return {
+                ...prod,
+                inCart: false,
+                cartItemCount: 0,
+              };
+            }
+            return prod;
+          }),
+        ],
+      };
+
+    case "INCREMENT_CART_ITEM":
+      return {
+        ...productState,
+        totalCartItems: productState.totalCartItems + 1,
+        cartProductsList: [
+          ...productState.cartProductsList.map((prod) => {
+            if (prod._id === action.payload.itemId) {
+              return {
+                ...prod,
+                cartItemCount: prod.cartItemCount + 1,
+              };
+            }
+            return prod;
+          }),
+        ],
+      };
+
+    case "DECREMENT_CART_ITEM":
+      return {
+        ...productState,
+        totalCartItems:
+          productState.totalCartItems === 1
+            ? 0
+            : productState.totalCartItems - 1,
+        cartProductsList: [
+          ...productState.cartProductsList.map((prod) => {
+            if (prod._id === action.payload.itemId) {
+              return {
+                ...prod,
+                inCart: prod.cartItemCount === 1 ? false : prod.inCart,
+                cartItemCount:
+                  prod.cartItemCount === 1 ? 0 : prod.cartItemCount - 1,
+              };
+            }
+            return prod;
+          }),
+        ],
+      };
+
+    case "CLEAR_CART":
+      return {
+        ...productState,
+        totalCartItems: 0,
+        cartProductsList: [
+          ...productState.cartProductsList.map((prod) => {
+            return {
+              ...prod,
+              inCart: false,
+              cartItemCount: 0,
+            };
+          }),
+        ],
+      };
+
     case "CLEAR_FILTER":
       return {
         selectedSortBy: "",
@@ -47,6 +144,7 @@ export const filterReducer = (productState, action) => {
         selectedRating: 0,
         selectedCategories: [],
         productsList: [...products],
+        cartProductsList: productState.cartProductsList,
       };
     default:
       return productState;

@@ -28,6 +28,11 @@
     margin: 0;
 }
 
+.card-horizontal .discount {
+    display: inline-block;
+    padding-left: 0.35rem;
+}
+
 .cart-wrapper .card-header {
     margin-left: 1rem;
 }
@@ -53,15 +58,25 @@
     color: var(--white);
     background-color: var(--accent-color);
     width: fit-content;
-    padding: 0.5rem;
     border-radius: 7px;
     margin-top: 0.5rem;
     margin-left: auto;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .display-counter {
     padding: 0 0.4rem;
 }
+
+.change-number {
+    padding: 0.2rem 0.5rem;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
 .change-number:hover {
     color: var(--primary-color);
 }
