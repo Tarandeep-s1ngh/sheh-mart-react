@@ -12,7 +12,7 @@ export const Cart = () => {
 
       <div className="divider divider-b"></div>
 
-      {productState.cartProductsList.some((items) => items.inCart) && (
+      {productState.cartProductsList.some((item) => item.inCart) && (
         <div className="text-center">
           <span
             onClick={() => {
@@ -29,11 +29,11 @@ export const Cart = () => {
 
       <div className="cart-wrapper">
         <section className="cart-products">
-          {productState.cartProductsList.some((items) => items.inCart) ===
+          {productState.cartProductsList.some((item) => item.inCart) ===
           true ? (
             productState.cartProductsList
-              .filter((items) => items.inCart)
-              .map((items) => <HorizontalCard items={items} key={items._id} />)
+              .filter((item) => item.inCart)
+              .map((item) => <HorizontalCard item={item} key={item._id} />)
           ) : (
             <div className="text-center">
               <div className="gif-wrapper">
@@ -57,7 +57,7 @@ export const Cart = () => {
           )}
         </section>
 
-        {productState.cartProductsList.some((items) => items.inCart) && (
+        {productState.cartProductsList.some((item) => item.inCart) && (
           <section className="price-details">
             <div className="price-card subtotal-card text-center">
               <p className="text-center">

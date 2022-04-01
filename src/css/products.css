@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     min-width: 14rem;
-    border: 1px solid var(--dark-shadow);
+    border: 1px solid var(--ecom-box-shadow);
     border-radius: 5px;
     padding: 1rem;
     position: sticky;
@@ -29,22 +29,27 @@
     align-items: center;
 }
 
+.filter-header > h2 {
+    font-size: 1.35rem;
+}
+
 .filter-header > a {
     text-decoration: underline;
 }
 
-.filter > hr {
-    margin: 0;
-    margin-bottom: 0.5rem;
+.filter-divider {
+    border-bottom: 1px solid var(--ecom-box-shadow);
 }
 
 .filter h3 {
+    font-size: 1.1rem;
     margin-top: 0.5rem;
 }
 
 .filter-price {
     display: flex;
     justify-content: space-between;
+    font-size: 0.9rem;
 }
 
 input[type="range"] {
@@ -119,9 +124,9 @@ input[type="range"] {
 }
 
 .rating-badge-ecom {
-    border: unset;
-    background-color: var(--accent-color);
-    color: var(--white);
+    border: 2px solid var(--ecom-box-shadow);
+    border-radius: 12px;
+    color: var(--accent-color);
     margin-left: unset;
     display: flex;
     flex-flow: row wrap;
@@ -130,11 +135,11 @@ input[type="range"] {
     gap: 2.5px;
     padding: 0.1rem 0.25rem;
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .rating-fill-ecom {
-    color: var(--white);
+    color: var(--accent-color);
     font-size: 0.57rem;
 }
 

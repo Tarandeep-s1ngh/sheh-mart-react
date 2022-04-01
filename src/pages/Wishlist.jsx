@@ -14,8 +14,8 @@ export const Wishlist = () => {
       <div className="cart-wrapper">
         <section className="cart-products">
           {/* TO BE CHANGED LATER WITH FUNCTIONALITY*/}
-          {products.slice(0, 2).map((items) => (
-            <HorizontalCard items={items} key={items._id} />
+          {products.slice(0, 2).map((item) => (
+            <HorizontalCard item={item} key={item._id} />
           ))}
         </section>
 

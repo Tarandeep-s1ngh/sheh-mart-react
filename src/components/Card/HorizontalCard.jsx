@@ -1,39 +1,39 @@
 import { useFilter } from "../../context";
 
-export const HorizontalCard = ({ items }) => {
+export const HorizontalCard = ({ item }) => {
   const { dispatchProduct } = useFilter();
 
   return (
     <div className="card-horizontal">
       <div className="img-in-horizontal flex-row">
-        <img className="img-responsive" src={items.image} alt="chessKit" />
+        <img className="img-responsive" src={item.image} alt="chessKit" />
       </div>
       <div className="card-header">
         <div className="card-header-txt">
-          <h3 className="semibold">{items.title}</h3>
-          <small className="gray-color">{items.categoryName}</small>
+          <h3 className="semibold">{item.title}</h3>
+          <small className="gray-color">{item.categoryName}</small>
           <div className="card-price">
-            <span className="final-price t1p5 lightbold">{items.price} </span>
-            <span className="initial-price t-strike">{items.initialPrice}</span>
-            <span className="discount gray-color">{items.discountPrice}</span>
+            <span className="final-price t1p5 lightbold">{item.price} </span>
+            <span className="initial-price t-strike">{item.initialPrice}</span>
+            <span className="discount gray-color">{item.discountPrice}</span>
             <div className="product-counter bold">
               <span
                 onClick={() => {
                   dispatchProduct({
                     type: "DECREMENT_CART_ITEM",
-                    payload: { itemId: items._id },
+                    payload: { itemId: item._id },
                   });
                 }}
                 className="change-number"
               >
                 -
               </span>
-              <span className="display-counter">{items.cartItemCount}</span>
+              <span className="display-counter">{item.cartItemCount}</span>
               <span
                 onClick={() => {
                   dispatchProduct({
                     type: "INCREMENT_CART_ITEM",
-                    payload: { itemId: items._id },
+                    payload: { itemId: item._id },
                   });
                 }}
                 className="change-number"
@@ -48,7 +48,7 @@ export const HorizontalCard = ({ items }) => {
           onClick={() => {
             dispatchProduct({
               type: "REMOVE_FROM_CART",
-              payload: { itemId: items._id },
+              payload: { itemId: item._id },
             });
           }}
           className="btn-primary card-btn btn-outline"

@@ -26,7 +26,7 @@ export const ProductDetail = () => {
               </span>
             </div>
 
-            <div className="divider"></div>
+            <div className="filter-divider"></div>
 
             <h3 className="h3">Price</h3>
             <label htmlFor="range" className="lightbold">
@@ -150,8 +150,8 @@ export const ProductDetail = () => {
           {/********** Product Cards **********/}
           <div>
             <section className="products-section">
-              {productState.productsList.map((items) => (
-                <Card items={items} key={items._id} />
+              {productState.productsList.map((item) => (
+                <Card item={item} key={item._id} />
               ))}
             </section>
 

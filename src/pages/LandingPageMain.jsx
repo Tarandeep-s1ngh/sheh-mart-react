@@ -57,8 +57,8 @@ export const LandingPageMain = () => {
         <section className="products-section-home">
           {products
             .filter((item) => item.isTrending)
-            .map((items) => (
-              <Card items={items} key={items._id} />
+            .map((item) => (
+              <Card item={item} key={item._id} />
             ))}
         </section>
       </section>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useFilter } from "../../context";
 
-export const Card = ({ items }) => {
+export const Card = ({ item }) => {
   const { dispatchProduct } = useFilter();
 
   return (
@@ -10,38 +10,38 @@ export const Card = ({ items }) => {
         <div className="card-image-container">
           <img
             className="img-responsive img-responsive-ecom"
-            src={items.image}
-            alt={items.alt}
+            src={item.image}
+            alt={item.alt}
           />
         </div>
-        {items.isTrending && <div className="badge-in-card">TRENDING</div>}
+        {item.isTrending && <div className="badge-in-card">TRENDING</div>}
         <Link to="/wishlist" className="card-floating-icon">
           <i className="fas fa-heart"></i>
         </Link>
         <div className="card-header-txt">
           <div className="flex-row-wrap align-items-center justify-sb">
             <Link to="/single-product">
-              <h3 className="semibold t1p125">{items.title}</h3>
+              <h3 className="semibold t1p125">{item.title}</h3>
             </Link>
 
             <span className="rating-badge rating-badge-ecom">
-              {items.rating}
+              {item.rating}
               <span className="rating-fill rating-fill-ecom">
                 <i className="fa-solid fa-star"></i>
               </span>
             </span>
           </div>
-          <small className="gray-color">{items.categoryName}</small>
+          <small className="gray-color">{item.categoryName}</small>
           <div className="card-price">
-            <span className="final-price t1p125 semibold">₹{items.price}</span>
+            <span className="final-price t1p125 semibold">₹{item.price}</span>
             &nbsp; &nbsp;
             <span className="initial-price t-strike gray-color">
-              ₹{items.initialPrice}
+              ₹{item.initialPrice}
             </span>
             &nbsp; &nbsp;
             <span className="discount lightbold t0p938">
               {" "}
-              {items.discountPrice}
+              {item.discountPrice}
             </span>
           </div>
         </div>
@@ -50,14 +50,14 @@ export const Card = ({ items }) => {
         onClick={() => {
           dispatchProduct({
             type: "ADD_TO_CART",
-            payload: { itemId: items._id },
+            payload: { itemId: item._id },
           });
         }}
         className="btn-primary card-btn"
       >
         Add to Cart
       </button>
-      {items.outOfStock && (
+      {item.outOfStock && (
         <div className="overlay-msg t2 lightbold">Out of Stock</div>
       )}
     </div>
