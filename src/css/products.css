@@ -100,6 +100,7 @@ input[type="range"] {
 
 .card-floating-icon:hover {
     background-color: unset;
+    color: var(--accent-color);
 }
 
 .card-price > .discount {
@@ -124,7 +125,7 @@ input[type="range"] {
 }
 
 .rating-badge-ecom {
-    border: 2px solid var(--ecom-box-shadow);
+    border: 2px solid var(--accent-color);
     border-radius: 12px;
     color: var(--accent-color);
     margin-left: unset;
@@ -140,7 +141,7 @@ input[type="range"] {
 
 .rating-fill-ecom {
     color: var(--accent-color);
-    font-size: 0.57rem;
+    font-size: 0.65rem;
 }
 
 /*=============================================

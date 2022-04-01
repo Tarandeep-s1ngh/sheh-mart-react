@@ -61,12 +61,19 @@ export const Cart = () => {
           <section className="price-details">
             <div className="price-card subtotal-card text-center">
               <p className="text-center">
-                Cart Quantity : {productState.totalCartItems}{" "}
-                {productState.totalCartItems > 1 ? "items" : "item"}
+                Cart Quantity :{" "}
+                {
+                  productState.cartProductsList.filter((item) => item.inCart)
+                    .length
+                }{" "}
+                {productState.cartProductsList.filter((item) => item.inCart)
+                  .length > 1
+                  ? "items"
+                  : "item"}
               </p>
 
               <Link
-                to="checkout"
+                to="/checkout"
                 className="btn-primary card-btn dis-inline-block"
               >
                 Proceed to Checkout

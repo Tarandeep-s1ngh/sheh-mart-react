@@ -9,6 +9,7 @@ export const products = [
   {
     _id: uuid(),
     inCart: false,
+    inWishlist: false,
     rating: 4,
     title: "Chess Kit",
     categoryName: "Pieces",
@@ -24,6 +25,7 @@ export const products = [
   {
     _id: uuid(),
     inCart: false,
+    inWishlist: false,
     rating: 5,
     title: "Premium Board",
     categoryName: "Board",
@@ -39,6 +41,7 @@ export const products = [
   {
     _id: uuid(),
     inCart: false,
+    inWishlist: false,
     rating: 4.5,
     title: "Chess Board",
     categoryName: "Board",
@@ -54,6 +57,7 @@ export const products = [
   {
     _id: uuid(),
     inCart: false,
+    inWishlist: false,
     rating: 2,
     title: "Chess Base 16",
     categoryName: "Book",
@@ -69,6 +73,7 @@ export const products = [
   {
     _id: uuid(),
     inCart: false,
+    inWishlist: false,
     rating: 3.5,
     title: "Mikhail Tal",
     categoryName: "Book",
@@ -84,6 +89,7 @@ export const products = [
   {
     _id: uuid(),
     inCart: false,
+    inWishlist: false,
     rating: 4.5,
     title: "Royal Chess Pieces",
     categoryName: "Pieces",
@@ -99,6 +105,7 @@ export const products = [
   {
     _id: uuid(),
     inCart: false,
+    inWishlist: false,
     rating: 1,
     title: "Royal Board",
     categoryName: "Board",
@@ -114,6 +121,7 @@ export const products = [
   {
     _id: uuid(),
     inCart: false,
+    inWishlist: false,
     rating: 5,
     title: "Vishy Immortal",
     categoryName: "Book",
@@ -129,6 +137,7 @@ export const products = [
   {
     _id: uuid(),
     inCart: false,
+    inWishlist: false,
     rating: 3.5,
     title: "Sicilian Defence",
     categoryName: "Book",
