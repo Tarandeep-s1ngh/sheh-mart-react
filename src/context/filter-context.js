@@ -13,6 +13,7 @@ const FilterProvider = ({ children }) => {
     selectedCategories: [],
     productsList: [...products],
     cartProductsList: [...products],
+    wishlistProductsList: [...products],
     totalCartItems: 0,
   });
 

@@ -15,9 +15,17 @@ export const Card = ({ item }) => {
           />
         </div>
         {item.isTrending && <div className="badge-in-card">TRENDING</div>}
-        <Link to="/wishlist" className="card-floating-icon">
+        <span
+          onClick={() => {
+            dispatchProduct({
+              type: "ADD_TO_WISHLIST",
+              payload: { itemId: item._id },
+            });
+          }}
+          className="card-floating-icon"
+        >
           <i className="fas fa-heart"></i>
-        </Link>
+        </span>
         <div className="card-header-txt">
           <div className="flex-row-wrap align-items-center justify-sb">
             <Link to="/single-product">
@@ -46,17 +54,24 @@ export const Card = ({ item }) => {
           </div>
         </div>
       </div>
-      <button
-        onClick={() => {
-          dispatchProduct({
-            type: "ADD_TO_CART",
-            payload: { itemId: item._id },
-          });
-        }}
-        className="btn-primary card-btn"
-      >
-        Add to Cart
-      </button>
+      {item.inCart ? (
+        <Link to="/cart" className="btn-primary card-btn">
+          Go to Cart
+        </Link>
+      ) : (
+        <button
+          onClick={() => {
+            dispatchProduct({
+              type: "ADD_TO_CART",
+              payload: { itemId: item._id },
+            });
+          }}
+          className="btn-primary card-btn"
+        >
+          Add to Cart
+        </button>
+      )}
+
       {item.outOfStock && (
         <div className="overlay-msg t2 lightbold">Out of Stock</div>
       )}

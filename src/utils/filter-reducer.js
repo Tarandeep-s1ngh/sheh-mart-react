@@ -59,6 +59,17 @@ export const filterReducer = (productState, action) => {
             return prod;
           }),
         ],
+        productsList: [
+          ...productState.productsList.map((prod) => {
+            if (prod._id === action.payload.itemId) {
+              return {
+                ...prod,
+                inCart: true,
+              };
+            }
+            return prod;
+          }),
+        ],
       };
 
     case "REMOVE_FROM_CART":
@@ -80,6 +91,17 @@ export const filterReducer = (productState, action) => {
             return prod;
           }),
         ],
+        productsList: [
+          ...productState.productsList.map((prod) => {
+            if (prod._id === action.payload.itemId) {
+              return {
+                ...prod,
+                inCart: false,
+              };
+            }
+            return prod;
+          }),
+        ],
       };
 
     case "INCREMENT_CART_ITEM":
@@ -88,6 +110,17 @@ export const filterReducer = (productState, action) => {
         totalCartItems: productState.totalCartItems + 1,
         cartProductsList: [
           ...productState.cartProductsList.map((prod) => {
+            if (prod._id === action.payload.itemId) {
+              return {
+                ...prod,
+                cartItemCount: prod.cartItemCount + 1,
+              };
+            }
+            return prod;
+          }),
+        ],
+        productsList: [
+          ...productState.productsList.map((prod) => {
             if (prod._id === action.payload.itemId) {
               return {
                 ...prod,
@@ -119,6 +152,51 @@ export const filterReducer = (productState, action) => {
             return prod;
           }),
         ],
+        productsList: [
+          ...productState.productsList.map((prod) => {
+            if (prod._id === action.payload.itemId) {
+              return {
+                ...prod,
+                inCart: prod.cartItemCount === 1 ? false : prod.inCart,
+                cartItemCount:
+                  prod.cartItemCount === 1 ? 0 : prod.cartItemCount - 1,
+              };
+            }
+            return prod;
+          }),
+        ],
+      };
+
+    case "ADD_TO_WISHLIST":
+      return {
+        ...productState,
+        wishlistProductsList: [
+          ...productState.wishlistProductsList.map((prod) => {
+            if (prod._id === action.payload.itemId) {
+              return {
+                ...prod,
+                inWishlist: true,
+              };
+            }
+            return prod;
+          }),
+        ],
+      };
+
+    case "REMOVE_FROM_WISHLIST":
+      return {
+        ...productState,
+        wishlistProductsList: [
+          ...productState.wishlistProductsList.map((prod) => {
+            if (prod._id === action.payload.itemId) {
+              return {
+                ...prod,
+                inWishlist: false,
+              };
+            }
+            return prod;
+          }),
+        ],
       };
 
     case "CLEAR_CART":
@@ -134,6 +212,14 @@ export const filterReducer = (productState, action) => {
             };
           }),
         ],
+        productsList: [
+          ...productState.productsList.map((prod) => {
+            return {
+              ...prod,
+              inCart: false,
+            };
+          }),
+        ],
       };
 
     case "CLEAR_FILTER":
@@ -145,6 +231,7 @@ export const filterReducer = (productState, action) => {
         selectedCategories: [],
         productsList: [...products],
         cartProductsList: productState.cartProductsList,
+        wishlistProductsList: productState.wishlistProductsList,
       };
     default:
       return productState;
