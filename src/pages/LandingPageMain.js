@@ -55,9 +55,11 @@ export const LandingPageMain = () => {
         </h3>
 
         <section className="products-section-home">
-          {products.slice(0, 4).map((items) => (
-            <Card items={items} key={items._id} />
-          ))}
+          {products
+            .filter((item) => item.isTrending)
+            .map((items) => (
+              <Card items={items} key={items._id} />
+            ))}
         </section>
       </section>
     </main>

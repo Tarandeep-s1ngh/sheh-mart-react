@@ -93,8 +93,8 @@ export const ProductDetail = () => {
                 <div className="flex-row gap0p2" key={num}>
                   <input
                     type="radio"
-                    id={`"above "${num}`}
-                    value={`${num}" stars & above"`}
+                    id={`above ${num}`}
+                    value={`${num} stars & above`}
                     name="rating"
                     checked={productState.selectedRating === num}
                     onChange={() =>
@@ -104,7 +104,9 @@ export const ProductDetail = () => {
                       })
                     }
                   />
-                  <label htmlFor={`"above "${num}`}>{num} stars & above</label>
+                  <label htmlFor={`above ${num}`}>{`${num} ${
+                    num === 1 ? "star" : "stars"
+                  } & above`}</label>
                 </div>
               );
             })}

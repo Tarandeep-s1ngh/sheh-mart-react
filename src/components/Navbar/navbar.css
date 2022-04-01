@@ -31,6 +31,36 @@ nav .nav-bar .icon-in-nav:hover {
     cursor: pointer;
 }
 
+.search-bar {
+    border: 2px solid var(--accent-color);
+    height: fit-content;
+    border-radius: 6px;
+    padding: 0 0.5rem;
+    width: 12rem;
+    margin-right: 1rem;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    background: none;
+    width: 80%;
+    padding: 2px 4.8px;
+}
+
+.search-bar > .fa-search {
+    color: var(--accent-color);
+}
+
+.search-bar > .fa-search:hover {
+    color: var(--black);
+    cursor: pointer;
+}
+
+.search-bar:hover {
+    border-color: var(--black);
+}
+
 /*=============================================
 =            Footer            =
 =============================================*/

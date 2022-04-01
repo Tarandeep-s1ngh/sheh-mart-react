@@ -12,6 +12,8 @@ const FilterProvider = ({ children }) => {
     selectedRating: 0,
     selectedCategories: [],
     productsList: [...products],
+    cartProductsList: [...products],
+    totalCartItems: 0,
   });
 
   return (

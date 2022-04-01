@@ -1,10 +1,10 @@
-import { useProduct } from "../context";
+import { useFilter } from "../context";
 import { HorizontalCard } from "../components";
 import { Link } from "react-router-dom";
 import { emptyCart } from "../assets";
 
 export const Cart = () => {
-  const { state: products } = useProduct();
+  const { dispatchProduct, productState } = useFilter();
 
   return (
     <main className="main-wrapper">
@@ -12,18 +12,28 @@ export const Cart = () => {
 
       <div className="divider divider-b"></div>
 
-      {products.some((items) => items.inCart) && (
+      {productState.cartProductsList.some((items) => items.inCart) && (
         <div className="text-center">
-          <span className="clear span-hove">Clear cart</span>
+          <span
+            onClick={() => {
+              dispatchProduct({
+                type: "CLEAR_CART",
+              });
+            }}
+            className="clear span-hover"
+          >
+            Clear cart
+          </span>
         </div>
       )}
 
       <div className="cart-wrapper">
         <section className="cart-products">
-          {products.some((items) => items.inCart) === true ? (
-            products.map((items) => (
-              <HorizontalCard items={items} key={items._id} />
-            ))
+          {productState.cartProductsList.some((items) => items.inCart) ===
+          true ? (
+            productState.cartProductsList
+              .filter((items) => items.inCart)
+              .map((items) => <HorizontalCard items={items} key={items._id} />)
           ) : (
             <div className="text-center">
               <div className="gif-wrapper">
@@ -47,10 +57,13 @@ export const Cart = () => {
           )}
         </section>
 
-        {products.some((items) => items.inCart) && (
+        {productState.cartProductsList.some((items) => items.inCart) && (
           <section className="price-details">
             <div className="price-card subtotal-card text-center">
-              <p className="text-center">Subtotal ( 2 items ): ₹698</p>
+              <p className="text-center">
+                Cart Quantity : {productState.totalCartItems}{" "}
+                {productState.totalCartItems > 1 ? "items" : "item"}
+              </p>
 
               <Link
                 to="checkout"
