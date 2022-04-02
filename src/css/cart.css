@@ -31,6 +31,7 @@
 .card-horizontal .discount {
     display: inline-block;
     padding-left: 0.35rem;
+    font-size: 0.9rem;
 }
 
 .cart-wrapper .card-header {
@@ -50,6 +51,26 @@
 
 .cart-wrapper .btn-outline:hover {
     color: var(--accent-color);
+}
+
+.card-horizontal .card-header {
+    padding: 0.5rem 0;
+}
+
+.card-horizontal .card-header-txt > h3 {
+    font-size: 1.2rem;
+}
+
+.card-horizontal .final-price {
+    font-size: 1.2rem;
+}
+
+.card-horizontal .initial-price {
+    font-size: 0.9rem;
+}
+
+.card-horizontal button {
+    margin-bottom: 0;
 }
 
 /* Product Quantity Counter */

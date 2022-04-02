@@ -11,11 +11,15 @@ export const HorizontalCard = ({ item }) => {
       <div className="card-header">
         <div className="card-header-txt">
           <h3 className="semibold">{item.title}</h3>
-          <small className="gray-color">{item.categoryName}</small>
+          <small className="gray-color lightbold">{item.categoryName}</small>
           <div className="card-price">
-            <span className="final-price t1p5 lightbold">{item.price} </span>
-            <span className="initial-price t-strike">{item.initialPrice}</span>
-            <span className="discount gray-color">{item.discountPrice}</span>
+            <span className="final-price t1p5 lightbold">₹{item.price} </span>
+            &nbsp;
+            <span className="initial-price gray-color t-strike">
+              ₹{item.initialPrice}
+            </span>
+            &nbsp;
+            <span className="discount lightbold">{item.discountPrice}</span>
             {item.inCart && (
               <div className="product-counter bold">
                 <span

@@ -157,3 +157,40 @@ a:hover {
 .align-items-center {
     align-items: center;
 }
+
+/* TOOLTIP */
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: var(--black);
+    color: var(--white);
+    width: 70px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 1px 4px;
+    position: absolute;
+    z-index: 12;
+    top: 126%;
+    left: 50%;
+    font-size: 0.85rem;
+    margin-left: -34px;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent var(--black) transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

@@ -39,10 +39,14 @@
 .hero-txt > .btn-primary {
     margin-top: 1rem;
     background-color: var(--accent-color);
-    color: var(--dark-black);
+    color: #efefef;
     font-weight: 400;
     cursor: pointer;
     border: 2px solid var(--accent-color);
+}
+
+.hero-txt > .btn-primary:hover {
+    color: var(--accent-color);
 }
 
 
@@ -126,12 +130,38 @@
 =            Media Queries            =
 =============================================*/
 
+
+/*=====  Tablets  ======*/
+
+@media screen and (max-width: 48em) {
+    .hero-txt > .h1 {
+        color: var(--black);
+    }
+
+    .category-cards {
+        gap: 1rem;
+    }
+}
+
+
 /* Mobile Devices */
 
 @media screen and (max-width: 40em) {
+    .hero-section {
+        background-color: var(--white);
+        background-image: url("../assets/chess-banner-sm.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 2rem;
+        height: 20rem;
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
     .hero-txt {
         position: absolute;
-        top: 2rem;
+        top: 4rem;
         left: 3rem;
     }
 
@@ -144,19 +174,15 @@
     }
 }
 
+/* Small Mobile Screens */
 
-/*=====  Tablets  ======*/
-
-@media screen and (max-width: 48em) {
-    .hero-section {
-        background-image: none;
-    }
-
+@media screen and (max-width: 26em) {
     .hero-txt > .h1 {
-        color: var(--black);
+        font-size: 2.8rem;
+        line-height: 3rem;
     }
-
-    .category-cards {
-        gap: 1rem;
+    
+    .hero-txt > .h2 {
+        margin-top: 0;
     }
 }

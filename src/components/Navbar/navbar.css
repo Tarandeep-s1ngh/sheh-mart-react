@@ -16,6 +16,8 @@
 
 .icon-in-nav {
     color: var(--accent-color);
+    margin: 0.8rem 1rem;
+    padding: unset;
 }
 
 nav .nav-bar .icon-in-nav:hover {
@@ -91,4 +93,28 @@ nav .nav-bar .icon-in-nav:hover {
 
 .footer-below {
     text-align: center;
+}
+
+/*=============================================
+=            Media Queries            =
+=============================================*/
+
+/* Mobile Devices */
+
+@media screen and (max-width: 30em) {
+    .search-bar {
+        width: 8rem;
+    }
+}
+
+
+/* Small Mobile Screens */
+
+@media screen and (max-width: 26em) {
+    .nav-txt > a > .fas {
+        display: none;
+    }
+    .search-bar {
+        width: 6rem;
+    }
 }
