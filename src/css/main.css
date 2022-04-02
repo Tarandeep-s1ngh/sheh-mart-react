@@ -39,7 +39,7 @@
 .hero-txt > .btn-primary {
     margin-top: 1rem;
     background-color: var(--accent-color);
-    color: #efefef;
+    color: var(--ecom-hero-bg);
     font-weight: 400;
     cursor: pointer;
     border: 2px solid var(--accent-color);
@@ -102,7 +102,7 @@
     right: 0;
     z-index: -1;
     border: 0.5px solid var(--accent-color);
-    background-color: #efefef;
+    background-color: var(--ecom-hero-bg);
   
     transition: transform 400ms ease-in-out;
     transform: scaleX(0);

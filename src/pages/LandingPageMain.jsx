@@ -8,6 +8,25 @@ export const LandingPageMain = () => {
   const { state: products } = useProduct();
   const { dispatchProduct } = useFilter();
   const navigate = useNavigate();
+
+  const featuredCategoryHandler = (item) => {
+    dispatchProduct({
+      type: "CLEAR_FILTER",
+    });
+    dispatchProduct({
+      type: "ADD_CATEGORY_FILTER",
+      payload: { categories: item.categ },
+    });
+    navigate("/product-detail");
+  };
+
+  const shopNowHandler = () => {
+    dispatchProduct({
+      type: "CLEAR_FILTER",
+    });
+    navigate("/product-detail");
+  };
+
   return (
     <main className="main-wrapper">
       <section className="hero-section">
@@ -15,12 +34,7 @@ export const LandingPageMain = () => {
           <h1 className="h1">One Stop Shop</h1>
           <h2 className="h2 highlight-color">For All Your Chess Needs</h2>
           <button
-            onClick={() => {
-              dispatchProduct({
-                type: "CLEAR_FILTER",
-              });
-              navigate("/product-detail");
-            }}
+            onClick={() => shopNowHandler()}
             className="btn-primary dis-inline-block btn-slide"
           >
             Shop Now
@@ -41,16 +55,7 @@ export const LandingPageMain = () => {
             return (
               <div
                 key={item.title}
-                onClick={() => {
-                  dispatchProduct({
-                    type: "CLEAR_FILTER",
-                  });
-                  dispatchProduct({
-                    type: "ADD_CATEGORY_FILTER",
-                    payload: { categories: item.categ },
-                  });
-                  navigate("/product-detail");
-                }}
+                onClick={() => featuredCategoryHandler(item)}
                 className="card-badge"
               >
                 <i className={`fas fa-${item.icon}`}></i>
