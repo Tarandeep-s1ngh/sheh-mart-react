@@ -117,6 +117,7 @@ input[type="range"] {
 .card-btn:hover {
     background-color: var(--white);
     color: var(--black);
+    /* #ed5a25 TO BE USED LATER */
 }
 
 .overlay-msg {
@@ -125,9 +126,10 @@ input[type="range"] {
 }
 
 .rating-badge-ecom {
+    background-color: var(--accent-color);
     border: 2px solid var(--accent-color);
-    border-radius: 12px;
-    color: var(--accent-color);
+    border-radius: 5px;
+    color: var(--white);
     margin-left: unset;
     display: flex;
     flex-flow: row wrap;
@@ -140,7 +142,7 @@ input[type="range"] {
 }
 
 .rating-fill-ecom {
-    color: var(--accent-color);
+    color: var(--white);
     font-size: 0.65rem;
 }
 

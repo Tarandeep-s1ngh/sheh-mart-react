@@ -1,11 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
-import { useProduct } from "../context";
+import { useFilter, useProduct } from "../context";
 import { awesomeIcons } from "../utils/";
 import { Card } from "../components/";
 
 export const LandingPageMain = () => {
   const { state: products } = useProduct();
+  const { dispatchProduct } = useFilter();
+  const navigate = useNavigate();
+
+  const featuredCategoryHandler = (item) => {
+    dispatchProduct({
+      type: "CLEAR_FILTER",
+    });
+    dispatchProduct({
+      type: "ADD_CATEGORY_FILTER",
+      payload: { categories: item.categ },
+    });
+    navigate("/product-detail");
+  };
+
+  const shopNowHandler = () => {
+    dispatchProduct({
+      type: "CLEAR_FILTER",
+    });
+    navigate("/product-detail");
+  };
 
   return (
     <main className="main-wrapper">
@@ -13,12 +33,12 @@ export const LandingPageMain = () => {
         <div className="hero-txt">
           <h1 className="h1">One Stop Shop</h1>
           <h2 className="h2 highlight-color">For All Your Chess Needs</h2>
-          <Link
-            to="/product-detail"
+          <button
+            onClick={() => shopNowHandler()}
             className="btn-primary dis-inline-block btn-slide"
           >
             Shop Now
-          </Link>
+          </button>
         </div>
       </section>
 
@@ -31,17 +51,19 @@ export const LandingPageMain = () => {
 
         <div className="category-cards">
           {/* CATEGORY CARD  */}
-          {awesomeIcons.map((items, idx) => {
+          {awesomeIcons.map((item) => {
             return (
-              <Link to="/product-detail" key={idx}>
-                <div className="card-badge">
-                  <i className={`fas fa-${items.icon}`}></i>
+              <div
+                key={item.title}
+                onClick={() => featuredCategoryHandler(item)}
+                className="card-badge"
+              >
+                <i className={`fas fa-${item.icon}`}></i>
 
-                  <div className="card-header-txt">
-                    <h3 className="semibold">{items.title}</h3>
-                  </div>
+                <div className="card-header-txt">
+                  <h3 className="semibold">{item.title}</h3>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>

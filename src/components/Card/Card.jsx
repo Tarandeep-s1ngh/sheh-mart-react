@@ -39,7 +39,7 @@ export const Card = ({ item }) => {
               </span>
             </span>
           </div>
-          <small className="gray-color">{item.categoryName}</small>
+          <small className="gray-color lightbold">{item.categoryName}</small>
           <div className="card-price">
             <span className="final-price t1p125 semibold">₹{item.price}</span>
             &nbsp; &nbsp;

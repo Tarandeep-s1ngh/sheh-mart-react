@@ -1,5 +1,6 @@
 import Mockman from "mockman-js";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { Navbar, Footer } from "./components";
 import {
   LandingPageMain,
@@ -14,6 +15,11 @@ import {
   Profile,
 } from "./pages";
 function App() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="App">
       <div className="wrapper">
