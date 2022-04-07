@@ -24,7 +24,7 @@ export const Card = ({ item }) => {
           }}
           className="card-floating-icon"
         >
-          <i className="fas fa-heart"></i>
+          <i class="far fa-heart"></i>
         </span>
         <div className="card-header-txt">
           <div className="flex-row-wrap align-items-center justify-sb">

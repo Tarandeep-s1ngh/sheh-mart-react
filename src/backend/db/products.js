@@ -82,7 +82,7 @@ export const products = [
     discountPrice: "44% off",
     image: cbase,
     alt: "p4",
-    isTrending: false,
+    isTrending: true,
     outOfStock: false,
     cartItemCount: 0,
     description:
@@ -154,7 +154,7 @@ export const products = [
     discountPrice: "44% off",
     image: fisBook,
     alt: "p8",
-    isTrending: true,
+    isTrending: false,
     outOfStock: false,
     cartItemCount: 0,
     description:
