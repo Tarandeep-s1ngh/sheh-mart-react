@@ -28,7 +28,7 @@ export const Card = ({ item }) => {
         </span>
         <div className="card-header-txt">
           <div className="flex-row-wrap align-items-center justify-sb">
-            <Link to="/single-product">
+            <Link to={`/single-product/${item._id}`}>
               <h3 className="semibold t1p125">{item.title}</h3>
             </Link>
 

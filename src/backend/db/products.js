@@ -21,6 +21,8 @@ export const products = [
     isTrending: true,
     outOfStock: false,
     cartItemCount: 0,
+    description:
+      "Chess pieces are distinguished by appearance and made of rigid material such as wood, ivory, or plastic. Pieces are of contrasting colours, commonly white and black. The six different types of pieces are: king, rook, bishop, queen, knight, and pawn. More than 500 different patterns of chess pieces have been recorded.",
   },
   {
     _id: uuid(),
@@ -37,6 +39,8 @@ export const products = [
     isTrending: true,
     outOfStock: false,
     cartItemCount: 0,
+    description:
+      "A board of 64 squares arranged in eight vertical rows called files and eight horizontal rows called ranks. These squares alternate between two colours: one light, such as white, beige, or yellow; and the other dark, such as black or green.",
   },
   {
     _id: uuid(),
@@ -53,6 +57,8 @@ export const products = [
     isTrending: false,
     outOfStock: false,
     cartItemCount: 0,
+    description:
+      "A board of 64 squares arranged in eight vertical rows called files and eight horizontal rows called ranks. These squares alternate between two colours: one light, such as white, beige, or yellow; and the other dark, such as black or green.",
   },
   {
     _id: uuid(),
@@ -69,6 +75,8 @@ export const products = [
     isTrending: false,
     outOfStock: false,
     cartItemCount: 0,
+    description:
+      "A board of 64 squares arranged in eight vertical rows called files and eight horizontal rows called ranks. These squares alternate between two colours: one light, such as white, beige, or yellow; and the other dark, such as black or green.",
   },
   {
     _id: uuid(),
@@ -85,6 +93,8 @@ export const products = [
     isTrending: false,
     outOfStock: false,
     cartItemCount: 0,
+    description:
+      "A chess book lists different tutorials and analysis of moves to help players grow. A book move is a move that is well-known to opening theory. In other words, a book move is an opening move that is considered standard or conventional.",
   },
   {
     _id: uuid(),
@@ -101,6 +111,8 @@ export const products = [
     isTrending: true,
     outOfStock: false,
     cartItemCount: 0,
+    description:
+      "Chess pieces are distinguished by appearance and made of rigid material such as wood, ivory, or plastic. Pieces are of contrasting colours, commonly white and black. The six different types of pieces are: king, rook, bishop, queen, knight, and pawn. More than 500 different patterns of chess pieces have been recorded.",
   },
   {
     _id: uuid(),
@@ -117,6 +129,8 @@ export const products = [
     isTrending: false,
     outOfStock: false,
     cartItemCount: 0,
+    description:
+      "A board of 64 squares arranged in eight vertical rows called files and eight horizontal rows called ranks. These squares alternate between two colours: one light, such as white, beige, or yellow; and the other dark, such as black or green.",
   },
   {
     _id: uuid(),
@@ -133,6 +147,8 @@ export const products = [
     isTrending: true,
     outOfStock: false,
     cartItemCount: 0,
+    description:
+      "A chess book lists different tutorials and analysis of moves to help players grow. A book move is a move that is well-known to opening theory. In other words, a book move is an opening move that is considered standard or conventional.",
   },
   {
     _id: uuid(),
@@ -149,5 +165,7 @@ export const products = [
     isTrending: false,
     outOfStock: false,
     cartItemCount: 0,
+    description:
+      "A chess book lists different tutorials and analysis of moves to help players grow. A book move is a move that is well-known to opening theory. In other words, a book move is an opening move that is considered standard or conventional.",
   },
 ];
