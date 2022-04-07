@@ -6,6 +6,7 @@ import {
   setRemoveCategory,
   setRange,
   setRating,
+  searchProduct,
 } from "./index";
 
 export const filterReducer = (productState, action) => {
@@ -197,6 +198,12 @@ export const filterReducer = (productState, action) => {
             return prod;
           }),
         ],
+      };
+
+    case "SEARCH_PRODUCT":
+      return {
+        ...productState,
+        productsList: searchProduct(products, action.payload.searchBy),
       };
 
     case "CLEAR_CART":
