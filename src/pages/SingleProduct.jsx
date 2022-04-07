@@ -21,7 +21,7 @@ export const SingleProduct = () => {
         <img
           className="img-responsive"
           src={currProduct.image}
-          alt="chessKit"
+          alt={currProduct.title}
         />
       </section>
 
