@@ -1,7 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./navbar.css";
+import { useFilter } from "../../context";
 
 export const Navbar = () => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const [searchInput, setsearchInput] = useState("");
+
+  const { dispatchProduct } = useFilter();
+
+  const searchHandler = (e) => {
+    if (e.key === "Enter" || e.keyCode === 8 || e.target.value === "") {
+      dispatchProduct({
+        type: "SEARCH_PRODUCT",
+        payload: { searchBy: e.target.value },
+      });
+      if (pathname !== "/product-detail") {
+        navigate("/product-detail");
+      }
+    }
+  };
+
+  const searchClickHandler = () => {
+    dispatchProduct({
+      type: "SEARCH_PRODUCT",
+      payload: { searchBy: searchInput },
+    });
+    if (pathname !== "/product-detail") {
+      navigate("/product-detail");
+    }
+  };
+
   return (
     <nav className="nav-bar">
       <div className="h3 nav-txt">
@@ -10,8 +40,16 @@ export const Navbar = () => {
         </Link>
       </div>
       <div className="search-bar flex-row justify-sb align-items-center">
-        <input type="text" className="search-input" />
-        <i className="fas fa-search"></i>
+        <input
+          type="text"
+          name="search"
+          value={searchInput}
+          placeholder="Search"
+          className="search-input"
+          onKeyDown={(e) => searchHandler(e)}
+          onChange={(e) => setsearchInput(e.target.value)}
+        />
+        <i onClick={() => searchClickHandler()} className="fas fa-search"></i>
       </div>
       <Link to="/product-detail" className="icon-in-nav tooltip">
         <i className="fas fa-gifts"></i>
