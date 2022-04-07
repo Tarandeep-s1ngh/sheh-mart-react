@@ -89,6 +89,9 @@ input[type="range"] {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     transform: scale(1.1);
+    aspect-ratio: 2/1.5;
+    object-fit: cover;
+    object-position: center;
 }
 
 .card-floating-icon {
