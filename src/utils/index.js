@@ -7,3 +7,4 @@ export { setDescSort } from "./setDescSort";
 export { setAddCategory } from "./setAddCategory";
 export { setRemoveCategory } from "./setRemoveCategory";
 export { searchProduct } from "./searchProduct";
+export { getProduct } from "./getProduct";
