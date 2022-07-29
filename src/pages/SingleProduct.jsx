@@ -1,12 +1,50 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getProduct } from "../utils";
-import { useFilter } from "../context";
+import { useAuth, useFilter } from "../context";
 
 export const SingleProduct = () => {
   const [currProduct, setCurrProduct] = useState({});
   const { itemId } = useParams();
-  const { dispatchProduct } = useFilter();
+  const { isLogedIn } = useAuth();
+  const { productState, dispatchProduct } = useFilter();
+
+  const navigate = useNavigate();
+
+  const currCartProduct = productState?.cartProductsList?.find(
+    (cartProduct) => cartProduct._id === currProduct._id
+  );
+
+  const isInCart = currCartProduct?.inCart;
+
+  const currWishlistProduct = productState?.wishlistProductsList?.find(
+    (wishlistProduct) => wishlistProduct._id === currProduct._id
+  );
+
+  const isInWishlist = currWishlistProduct?.inWishlist;
+
+  const wishlistHandler = () => {
+    isLogedIn()
+      ? isInWishlist
+        ? dispatchProduct({
+            type: "REMOVE_FROM_WISHLIST",
+            payload: { itemId: currProduct._id },
+          })
+        : dispatchProduct({
+            type: "ADD_TO_WISHLIST",
+            payload: { itemId: currProduct._id },
+          })
+      : navigate("/login");
+  };
+
+  const addToCartHandler = () => {
+    isLogedIn()
+      ? dispatchProduct({
+          type: "ADD_TO_CART",
+          payload: { itemId: currProduct._id },
+        })
+      : navigate("/login");
+  };
 
   useEffect(() => {
     (async () => {
@@ -47,33 +85,20 @@ export const SingleProduct = () => {
             {currProduct.description}
           </div>
         </div>
-        {currProduct.inCart ? (
+        {isInCart ? (
           <Link to="/cart" className="btn-primary card-btn">
             Go to Cart
           </Link>
         ) : (
-          <button
-            onClick={() => {
-              dispatchProduct({
-                type: "ADD_TO_CART",
-                payload: { itemId: currProduct._id },
-              });
-            }}
-            className="btn-primary card-btn"
-          >
+          <button onClick={addToCartHandler} className="btn-primary card-btn">
             Add to Cart
           </button>
         )}
         <button
-          onClick={() => {
-            dispatchProduct({
-              type: "ADD_TO_WISHLIST",
-              payload: { itemId: currProduct._id },
-            });
-          }}
+          onClick={wishlistHandler}
           className="btn-primary btn-outline card-btn dis-inline-block mt-1"
         >
-          Add to Wishlist
+          {isInWishlist ? "Remove From Wishlist" : "Add to Wishlist"}
         </button>
       </section>
     </main>
