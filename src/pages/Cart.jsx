@@ -6,6 +6,11 @@ import { emptyCart } from "../assets";
 export const Cart = () => {
   const { dispatchProduct, productState } = useFilter();
 
+  const totalCartCount = productState?.cartProductsList
+    ?.filter((item) => item.inCart)
+    .map((obj) => obj.cartItemCount)
+    .reduce((acc, curr) => curr + acc, 0);
+
   return (
     <main className="main-wrapper">
       <h2 className="h2 text-center">My Cart</h2>
@@ -61,23 +66,13 @@ export const Cart = () => {
           <section className="price-details">
             <div className="price-card subtotal-card text-center">
               <p className="text-center">
-                Cart Quantity :{" "}
-                {
-                  productState.cartProductsList.filter((item) => item.inCart)
-                    .length
-                }{" "}
-                {productState.cartProductsList.filter((item) => item.inCart)
-                  .length > 1
-                  ? "items"
-                  : "item"}
+                Cart Quantity : {totalCartCount}{" "}
+                {totalCartCount > 1 ? "items" : "item"}
               </p>
 
-              <Link
-                to="/checkout"
-                className="btn-primary card-btn dis-inline-block"
-              >
+              <button className="btn-primary card-btn dis-inline-block">
                 Proceed to Checkout
-              </Link>
+              </button>
 
               <Link
                 to=""

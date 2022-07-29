@@ -1,9 +1,10 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./navbar.css";
-import { useFilter } from "../../context";
+import { useAuth, useFilter } from "../../context";
 
 export const Navbar = () => {
+  const { isLogedIn, logout } = useAuth();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [searchInput, setsearchInput] = useState("");
@@ -63,10 +64,18 @@ export const Navbar = () => {
         <i className="fas fa-heart"></i>
         <span className="tooltiptext">Wishlist</span>
       </Link>
-      <Link to="/login" className="icon-in-nav tooltip">
-        <i className="fas fa-user-circle"></i>
-        <span className="tooltiptext">Login</span>
-      </Link>
+      {isLogedIn() ? (
+        <button onClick={() => logout()} className="icon-in-nav tooltip">
+          <i className="fas fa-sign-out-alt"></i>
+
+          <span className="tooltiptext">Logout</span>
+        </button>
+      ) : (
+        <Link to="/login" className="icon-in-nav tooltip">
+          <i className="fas fa-user-circle"></i>
+          <span className="tooltiptext">Login</span>
+        </Link>
+      )}
       <Link to="/" className="icon-in-nav nav-hamburger">
         <i className="fas fa-bars"></i>
       </Link>

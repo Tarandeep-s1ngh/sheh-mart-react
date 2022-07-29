@@ -1,8 +1,40 @@
-import { Link } from "react-router-dom";
-import { useFilter } from "../../context";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth, useFilter } from "../../context";
 
 export const Card = ({ item }) => {
-  const { dispatchProduct } = useFilter();
+  const { isLogedIn } = useAuth();
+  const { productState, dispatchProduct } = useFilter();
+
+  const navigate = useNavigate();
+
+  const currWishlistProduct = productState?.wishlistProductsList?.find(
+    (wishlistProduct) => wishlistProduct._id === item._id
+  );
+
+  const isInWishlist = currWishlistProduct.inWishlist;
+
+  const wishlistHandler = () => {
+    isLogedIn()
+      ? isInWishlist
+        ? dispatchProduct({
+            type: "REMOVE_FROM_WISHLIST",
+            payload: { itemId: item._id },
+          })
+        : dispatchProduct({
+            type: "ADD_TO_WISHLIST",
+            payload: { itemId: item._id },
+          })
+      : navigate("/login");
+  };
+
+  const addToCartHandler = () => {
+    isLogedIn()
+      ? dispatchProduct({
+          type: "ADD_TO_CART",
+          payload: { itemId: item._id },
+        })
+      : navigate("/login");
+  };
 
   return (
     <div className="card-badge card-badge-ecom">
@@ -15,17 +47,16 @@ export const Card = ({ item }) => {
           />
         </div>
         {item.isTrending && <div className="badge-in-card">TRENDING</div>}
-        <span
-          onClick={() => {
-            dispatchProduct({
-              type: "ADD_TO_WISHLIST",
-              payload: { itemId: item._id },
-            });
-          }}
-          className="card-floating-icon"
-        >
-          <i class="far fa-heart"></i>
-        </span>
+        {isInWishlist ? (
+          <span onClick={wishlistHandler} className="card-floating-icon">
+            <i className="fas fa-heart"></i>
+          </span>
+        ) : (
+          <span onClick={wishlistHandler} className="card-floating-icon">
+            <i className="far fa-heart"></i>
+          </span>
+        )}
+
         <div className="card-header-txt">
           <div className="flex-row-wrap align-items-center justify-sb">
             <Link to={`/single-product/${item._id}`}>
@@ -59,15 +90,7 @@ export const Card = ({ item }) => {
           Go to Cart
         </Link>
       ) : (
-        <button
-          onClick={() => {
-            dispatchProduct({
-              type: "ADD_TO_CART",
-              payload: { itemId: item._id },
-            });
-          }}
-          className="btn-primary card-btn"
-        >
+        <button onClick={addToCartHandler} className="btn-primary card-btn">
           Add to Cart
         </button>
       )}
