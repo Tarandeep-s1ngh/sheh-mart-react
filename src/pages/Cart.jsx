@@ -1,15 +1,21 @@
 import { useFilter } from "../context";
 import { HorizontalCard } from "../components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { emptyCart } from "../assets";
 
 export const Cart = () => {
   const { dispatchProduct, productState } = useFilter();
 
+  const navigate = useNavigate();
+
   const totalCartCount = productState?.cartProductsList
     ?.filter((item) => item.inCart)
     .map((obj) => obj.cartItemCount)
     .reduce((acc, curr) => curr + acc, 0);
+
+  const totalCartPrice = productState?.cartProductsList
+    ?.filter((item) => item.inCart)
+    .reduce((acc, curr) => (acc += curr.cartItemCount * curr.price), 0);
 
   return (
     <main className="main-wrapper">
@@ -69,17 +75,23 @@ export const Cart = () => {
                 Cart Quantity : {totalCartCount}{" "}
                 {totalCartCount > 1 ? "items" : "item"}
               </p>
+              <p className="text-center">Sub Total : Rs {totalCartPrice}</p>
 
-              <button className="btn-primary card-btn dis-inline-block">
+              <button
+                onClick={() => {
+                  navigate("/checkout");
+                }}
+                className="btn-primary card-btn dis-inline-block"
+              >
                 Proceed to Checkout
               </button>
 
-              <Link
+              {/* <Link
                 to=""
                 className="btn-primary card-btn btn-outline dis-inline-block"
               >
                 <i className="fas fa-share"></i> Share Your Cart
-              </Link>
+              </Link> */}
             </div>
           </section>
         )}

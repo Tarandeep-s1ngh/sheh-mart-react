@@ -1,6 +1,19 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useFilter } from "../context";
 
 export const Checkout = () => {
+  const navigate = useNavigate();
+
+  const { dispatchProduct, productState } = useFilter();
+
+  const checkoutItemsList = productState?.cartProductsList?.filter(
+    (item) => item.inCart
+  );
+
+  const totalCartPrice = productState?.cartProductsList
+    ?.filter((item) => item.inCart)
+    .reduce((acc, curr) => (acc += curr.cartItemCount * curr.price), 0);
+
   return (
     <main className="main-wrapper">
       <h2 className="h2 text-center">Checkout</h2>
@@ -10,31 +23,38 @@ export const Checkout = () => {
       <section className="price-details">
         <div className="price-card">
           <h3 className="semibold text-center">Order Summary</h3>
-          <input type="text" placeholder="Apply Coupon" />
+          {/* <input type="text" placeholder="Apply Coupon" /> */}
           <div className="price-card-content">
             <span className="lightbold">item</span>
             <span className="lightbold">quantity</span>
             <span className="lightbold">price</span>
           </div>
-          <div className="price-card-content">
-            <span>Chess Kit Pieces</span>
-            <span>x2</span>
-            <span>₹499</span>
-          </div>
-          <div className="price-card-content">
-            <span>Chess Base 16 Book</span>
-            <span>x1</span>
-            <span>₹249</span>
-          </div>
+          {checkoutItemsList.map((item) => {
+            return (
+              <div key={item._id} className="price-card-content">
+                <span>{item.title}</span>
+                <span>x{item.cartItemCount}</span>
+                <span>₹{item.price}</span>
+              </div>
+            );
+          })}
           <div className="divider divider-b-full"></div>
           <div className="price-card-content price-total">
             <p className="lightbold">Total</p>
-            <p className="lightbold">₹748</p>
+            <p className="lightbold">₹{totalCartPrice}</p>
           </div>
           <div className="text-center">
-            <Link to="/" className="btn-primary card-btn dis-inline-block">
+            <button
+              onClick={() => {
+                dispatchProduct({
+                  type: "CLEAR_CART",
+                });
+                navigate("/");
+              }}
+              className="btn-primary card-btn dis-inline-block"
+            >
               Proceed to Payment
-            </Link>
+            </button>
           </div>
         </div>
       </section>
