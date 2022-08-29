@@ -1,6 +1,8 @@
 import Mockman from "mockman-js";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Navbar, Footer } from "./components";
 import {
   LandingPageMain,
@@ -40,6 +42,19 @@ function App() {
         </Routes>
 
         <Footer />
+
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          theme="colored"
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth, useFilter } from "../../context";
+import { triggerToast } from "../../utils";
 
 export const Card = ({ item }) => {
   const { isLogedIn } = useAuth();
@@ -28,12 +29,13 @@ export const Card = ({ item }) => {
   };
 
   const addToCartHandler = () => {
-    isLogedIn()
-      ? dispatchProduct({
-          type: "ADD_TO_CART",
-          payload: { itemId: item._id },
-        })
-      : navigate("/login");
+    if (isLogedIn()) {
+      dispatchProduct({
+        type: "ADD_TO_CART",
+        payload: { itemId: item._id },
+      });
+      triggerToast("success", "Product added to cart!");
+    } else navigate("/login");
   };
 
   return (

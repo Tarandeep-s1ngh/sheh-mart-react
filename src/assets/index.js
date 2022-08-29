@@ -9,3 +9,4 @@ export { default as rCb } from "./rCb.jpg";
 export { default as rPieces } from "./rPieces.jpg";
 export { default as siclBook } from "./siclBook.jpg";
 export { default as fisBook } from "./fisBook.png";
+export { default as favicon } from "./favicon.ico";
